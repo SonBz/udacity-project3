@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: env-configmap
 data:
-  POSTGRES_HOST: "son212612323428.czon5aqoog5k.us-east-1.rds.amazonaws.com"
-  POSTGRES_DB: "son212612323428"
+  POSTGRES_HOST: "dbtesteks.czon5aqoog5k.us-east-1.rds.amazonaws.com"
+  POSTGRES_DB: "dbtesteks"
   AWS_BUCKET: "arn:aws:s3:::project3-212612323428-nguyenson"
   AWS_REGION: "us-east-1"
   AWS_PROFILE: "default"

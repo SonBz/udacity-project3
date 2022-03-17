@@ -1,4 +1,4 @@
-apiVersion: apps/v5
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-feed
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-feed
-          image: sonbz/udagram-api-feed:v5
+          image: sonbz/udagram-api-feed:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

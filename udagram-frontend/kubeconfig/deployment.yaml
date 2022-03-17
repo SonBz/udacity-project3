@@ -1,4 +1,4 @@
-apiVersion: apps/v5
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-frontend
-          image: sonbz/udagram-frontend:v5
+          image: sonbz/udagram-frontend:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
