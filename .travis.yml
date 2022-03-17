@@ -2,13 +2,15 @@ services:
     - docker
    
 script:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker build -t $DOCKER_USERNAME/udagram-api-feed:v1 ./udagram-api-feed
-    - docker build -t $DOCKER_USERNAME/udagram-api-user:v1 ./udagram-api-user
-    - docker build -t $DOCKER_USERNAME/udagram-reverseproxy:v1 ./udagram-reverseproxy
-    - docker build -t $DOCKER_USERNAME/udagram-frontend:v1 ./udagram-frontend
-    - docker push $DOCKER_USERNAME/udagram-api-feed:v1
-    - docker push $DOCKER_USERNAME/udagram-reverseproxy:v1
-    - docker push $DOCKER_USERNAME/udagram-api-user:v1
-    - docker push $DOCKER_USERNAME/udagram-frontend:v1
+    - docker build -t sonbz/udagram-api-feed:v1 ./udagram-api-feed
+    - docker build -t sonbz/udagram-api-user:v1 ./udagram-api-user
+    - docker build -t sonbz/udagram-reverseproxy:v1 ./udagram-reverseproxy
+    - docker build -t sonbz/udagram-frontend:v1 ./udagram-frontend
     
+
+after_success:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push sonbz/udagram-api-feed:v1
+    - docker push sonbz/udagram-reverseproxy:v1
+    - docker push sonbz/udagram-api-user:v1
+    - docker push sonbz/udagram-frontend:v1
